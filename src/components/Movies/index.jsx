@@ -14,6 +14,7 @@ const MovieList = () => {
   useEffect(() => {
     fetchMovies();
     fetchCategories();
+
   }, [selectedCategoryId]); 
 
   const fetchMovies = async () => {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import { searchMovies } from "../../utils/utilities";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -31,26 +32,28 @@ const Navbar = () => {
             type="text"
             placeholder="Search  your choices of Movies..."
             className="search-input"
+
           />
           <button className="search-button">
-
-            
             {searchResults.length > 0 && (
               <div className="search-dropdown">
+                <i className="bi bi-chevron-bar-down"></i>
                 <ul className="movie-dropdown">
                   {searchResults.map((item) => (
-                    <li
-                      key={item.id}
-                      className="search-result"
-                      onClick={() => handleSelectMovie(item)}>
+                    <li key={item.id} className="search-result">
                     
-                      {item.title}
+                      <Link to={`/MovieDetails/${item.id}`}
+                        onClick={() => handleSelectMovie(item)}
+                      >
+                        {item.title}
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
             )}
           </button>
+          
         </div>
         <ul className="links">
           <li className="link">Home</li>
@@ -62,11 +65,9 @@ const Navbar = () => {
       </nav>
       {selectedMovie && (
         <div className="selected-movie">
-          <h2>{selectedMovie.title}</h2>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`}
-            alt={selectedMovie.title}
-          />
+         
+          
+          
         </div>
       )}
     </div>

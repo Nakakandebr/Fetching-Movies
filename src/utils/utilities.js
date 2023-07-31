@@ -45,20 +45,6 @@ export const getMovies = async (genreId) => {
   }
 };
 
-export const getMovieDetails = async (movieId) => {
-  try {
-    const response = await fetch(`${BASE_URL}/3/movie/${movieId}`, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${ACCESS_TOKEN}`,
-      },
-    });
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    return error.message;
-  }
-};
 
 const searchMovies = async (query) => {
   try {
@@ -79,3 +65,17 @@ const searchMovies = async (query) => {
 };
 
 export { searchMovies };
+export const getMovieDetails = async (movieId) => {
+  try {
+    const response = await fetch(`${BASE_URL}/3/movie/${movieId}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${ACCESS_TOKEN}`,
+      },
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    return error.message;
+  }
+};
