@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getMovieDetails } from "../utils/utilities";
+import { getMovieDetails } from "../../utils/utilities";
 import './style.css'
 import Navbar from "../navbar";
 import Footer from "../footer";
@@ -56,7 +56,14 @@ const MovieDetails = () => {
           </div>
         </div>
       )}
-      <Footer />
+      
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+<Footer/>
+    
     </>
   );
 };

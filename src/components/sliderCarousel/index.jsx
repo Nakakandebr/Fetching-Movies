@@ -1,37 +1,36 @@
 import React, { useState } from "react";
 import './style.css';
+import { images } from "../../json/index";
+const Slider = () => {
+  const [currentMovie, setCurrentMovie] = useState(0);
 
-import { images } from "../json/index";
-const Carousel = () => {
-  const [currImg, setCurrImg] = useState(0);
-
-  const goToPreviousImage = () => {
+  const goToPreviousMovie = () => {
     
-    const newCurrImg = (currImg - 1 + images.length) % images.length;
-    setCurrImg(newCurrImg);
+    const newMoviePlaying = (currentMovie - 1 + images.length) % images.length;
+    setCurrentMovie(newMoviePlaying);
   };
 
-  const goToNextImage = () => {
+  const goToNextMovie= () => {
    
-    const newCurrImg = (currImg + 1) % images.length;
-    setCurrImg(newCurrImg);
+    const newMoviePlaying = (currentMovie + 1) % images.length;
+    setCurrentMovie(newMoviePlaying);
   };
 
   return (
     <>
       <div className="carousel">
-        <div className="carouselInner" style={{ backgroundImage: `url(${images[currImg].img})` }}>
-          <div className="left" onClick={goToPreviousImage}>
+        <div className="carouselInner" style={{ backgroundImage: `url(${images[currentMovie].img})` }}>
+          <div className="left" onClick={goToPreviousMovie}>
           <i class="bi bi-caret-left-fill"></i>
          
           </div>
 
           <div className="center">
-            <p>{images[currImg].duration}</p>
-            <h1 className="center-h1">{images[currImg].title}</h1>
+            <p>{images[currentMovie].duration}</p>
+            <h1 className="center-h1">{images[currentMovie].title}</h1>
             <p className="center-status">
               <span>
-                 {images[currImg].status}
+                 {images[currentMovie].status}
               </span>
               </p>
 
@@ -40,18 +39,18 @@ const Carousel = () => {
               <i class="bi bi-star-fill"></i>
            
               </span>
-              {images[currImg].rating}
+              {images[currentMovie].rating}
             </p>
 
             <p className="center-description">
               <span>
-                 {images[currImg].description}
+                 {images[currentMovie].description}
               </span>
             </p>
 
             <p className="center-staring">
               <span>Staring:   </span>
-              {images[currImg].staring}
+              {images[currentMovie].staring}
             </p>
 
            <div className="center-buttons">
@@ -60,7 +59,7 @@ const Carousel = () => {
            </div>
           </div>
 
-          <div className="right" onClick={goToNextImage}>
+          <div className="right" onClick={goToNextMovie}>
           <i class="bi bi-caret-right-fill"></i>
           
           </div>
@@ -70,4 +69,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default Slider;

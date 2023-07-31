@@ -1,4 +1,4 @@
-
+/* /* 
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500&family=Playfair+Display+SC:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&family=Karla:ital,wght@0,500;0,600;1,400;1,500&family=Playfair+Display+SC:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
@@ -76,9 +76,110 @@ nav div{
 .sign-in:hover{
   background-color: #f0ad27e4;
 }
+ 
 
 
 
 
-
+   */
+   .navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .logo span {
+    color: #f0655d;
+  }
+  
+  .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    width: 300px;
+  }
+  
+  .search-button {
+    background-color: #f0655d;
+    color: black;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .down-arrow {
+    margin-left: 5px;
+  }
+  
+  .search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    width: 300px;
+  }
+  
+  .movie-dropdown {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .search-result {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .search-result:hover {
+    background-color: rgb(228, 223, 223);
+  }
+  
+  .links {
+    list-style-type: none;
+    display: flex;
+  }
+  
+  .link {
+    margin-left: 16px;
+    cursor: pointer;
+  }
+  
+  .sign-in-button {
+    background-color: #f0655d;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
   

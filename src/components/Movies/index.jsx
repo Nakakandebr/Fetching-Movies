@@ -1,63 +1,62 @@
 import React, { useState, useEffect } from "react";
-import { getMovies, getGenres } from "../../utils/utilities";
+import { getMovies, getCategories } from "../../utils/utilities";
 import { Link } from "react-router-dom";
 import "./style.css";
 
 const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
 
 const MovieList = () => {
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [genres, setGenres] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState("");
+  const [selectedCategoryId, setSelectedCategoryId] = useState("");
+  const [moviesList, setMoviesList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [categoriesList, setCategoriesList] = useState([]);
 
   useEffect(() => {
     fetchMovies();
-    fetchGenres();
-  }, [selectedGenre]); 
+    fetchCategories();
+  }, [selectedCategoryId]); 
 
   const fetchMovies = async () => {
-    setLoading(true);
+    setIsLoading(true);
     try {
-      const fetchedMovies = await getMovies(selectedGenre);
-      setMovies(fetchedMovies.results || []);
-      setLoading(false);
+      const fetchedMovies = await getMovies(selectedCategoryId);
+      setMoviesList(fetchedMovies.results || []);
+      setIsLoading(false);
     } catch (error) {
-      console.error("Error fetching movies:", error.message);
-      setLoading(false);
+      console.error(error.message);
+      setIsLoading(false);
     }
   };
 
-  const fetchGenres = async () => {
+  const fetchCategories = async () => {
     try {
-      const fetchedGenres = await getGenres();
-      setGenres(fetchedGenres.genres || []);
+      const fetchedCategories = await getCategories();
+      setCategoriesList(fetchedCategories.genres || []);
     } catch (error) {
-      console.error("Error fetching genres:", error.message);
+      console.error( error.message);
     }
   };
 
-
-  if (loading) {
+  if (isLoading) {
     return <h1 className="loading">Loading ...</h1>;
   }
 
   return (
     <div>
       <div className="genreNavbar">
-        {genres.map((genre) => (
+        {categoriesList.map((item) => (
           <div
-            key={genre.id}
-            className={`genreNavItem ${genre.id === selectedGenre ? "active" : ""}`}
-            onClick={() => setSelectedGenre(genre.id)}
+            key={item.id}
+            className={`genreNavItem ${item.id === selectedCategoryId ? "active" : ""}`}
+            onClick={() => setSelectedCategoryId(item.id)}
           >
-            {genre.name}
+            {item.name}
           </div>
         ))}
       </div>
       <div className="imageContainer">
-        {movies.length > 0 ? (
-          movies.map((item) => (
+        {moviesList.length > 0 ? (
+          moviesList.map((item) => (
             <Link to={`/MovieDetails/${item.id}`} key={item.id}>
               <div className="images">
                 <img
@@ -68,7 +67,8 @@ const MovieList = () => {
             </Link>
           ))
         ) : (
-          <h3>No movies found for the selected genre.</h3>
+          <h3>No movies found for the selected categories.</h3>
+          
         )}
       </div>
     </div>
@@ -76,4 +76,3 @@ const MovieList = () => {
 };
 
 export default MovieList;
-

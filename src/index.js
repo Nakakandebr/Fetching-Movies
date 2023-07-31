@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import MovieDetails from './MovieDetails';
+import MovieDetails from './components/MovieDetails';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,8 @@ const router = createBrowserRouter([
     path: "/MovieDetails/:movie_id", 
     element: <MovieDetails />,
   },
+
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

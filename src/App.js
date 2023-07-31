@@ -1,14 +1,16 @@
 import './App.css';
-import Navbar from './navbar';
-import Footer from './footer';
-import Carousel from './sliderCarousel';
+import Navbar from './components/navbar';
+import Footer from './components/footer';
+import Slider from './components/sliderCarousel';
 import MovieList from './components/Movies';
+
 function App() {
   return (
     <div>
       <Navbar/>
-      <Carousel/>
+      <Slider/>
       <MovieList/>
+
       <Footer/>
     </div>
   );
