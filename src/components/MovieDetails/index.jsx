@@ -49,9 +49,13 @@ const MovieDetails = () => {
               <p>{detail.overview}</p>
               <p>Adult: {detail.adult ? "Yes" : "No"}</p>
               <p>Vote Count: {detail.vote_count}</p>
-              <p>Genre_ids: {detail.genre_ids}</p>
-              <p>Release_dates : {detail.release_dates}</p>
-              
+              <p>
+                Genre_ids:{" "}
+                {detail.genres.map((genre, index) =>
+                  detail.genres.length - 1 > index ? `${genre.id}, ` : genre.id
+                )}
+              </p>
+              <p>Release_dates : {detail.release_date}</p>
             </div>
           </div>
         </div>
