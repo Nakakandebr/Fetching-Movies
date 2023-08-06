@@ -9,12 +9,11 @@ export const getCategories = async () => {
         Authorization: `Bearer ${ACCESS_TOKEN}`,
         'Content-Type': 'application/json'
       },
-
+ 
     });
     const result = await response.json();
     return result;
   } catch (error) {
-
     return error.message;
 
   }
@@ -32,7 +31,6 @@ export const getMovies = async (genreId) => {
         Authorization: `Bearer ${ACCESS_TOKEN}`,
         'Content-Type': 'application/json'
 
-        
       },
     });
     const result = await response.json();

@@ -22,6 +22,7 @@ const MovieDetails = () => {
     };
     display();
   }, [movie_id]);
+  console.log(MovieDetails)
 
   return (
     <>
@@ -39,19 +40,27 @@ const MovieDetails = () => {
           <div className="movie-details">
             <h2>
               {detail.title}
-              <span className="favorite-icon">
+            <span className="favorite-icon">
               
 
-  
-              </span>
+            
+            </span>
             </h2>
             <div className="three-divs">
-              <p>{detail.overview}</p>
+            <p>{detail.overview}</p>
               <p>Adult: {detail.adult ? "Yes" : "No"}</p>
               <p>Vote Count: {detail.vote_count}</p>
-              <p>Genre_ids: {detail.genre_ids}</p>
-              <p>Release_dates : {detail.release_dates}</p>
+
+              <p>
+                Genre_ids:{" "}
+                {detail.genres.map((genre, index) =>
+                  detail.genres.length - 1 > index ? `${genre.id}, ` : genre.id
+                )}
+              </p>
+              <p>Release_dates : {detail.release_date}</p>
+           
               
+    
             </div>
           </div>
         </div>
