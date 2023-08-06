@@ -77,3 +77,19 @@ export const getMovieDetails = async (movieId) => {
     return error.message;
   }
 };
+export const upcomingMovies = async()=>{
+    try {
+       const response = await fetch(`${BASE_URL}/3/discover/movie`,{       
+        method: "GET",
+        headers:{
+            Authorization:`Bearer ${ACCESS_TOKEN}`,
+            "Content-Type":"application/json",
+        },
+       })
+       const result =await response.json();
+       return result; 
+       }
+    catch (error) {
+    return error.message;
+    }
+}
